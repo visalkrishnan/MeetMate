@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meet</title>
+        <script defer src="dist/bundle.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="chat.css">
+    </head>
+    <body>
+        <div id="name-div">
+            <label for="name">
+                Name:
+            </label>
+            <input type="text" id="name">
+            <button id="nameButton">Apply</button>
+        </div>
+        <div id="video-container">
+            <div class="video-container-div">
+                <h3>You<span class="user"></span></h3>
+                <video id="webcamVideo" autoplay="" playsinline="" muted="muted" ></video>
+                <div style="display:flex; justify-content: space-around; margin-bottom: 10px;">
+                    <button id="webcamButton">Start webcam</button>
+                    <button id="screenShareButton">Share Screen</button>
+                </div>
+            </div>
+
+        </div>
+        <div id="meet-options">
+            <div>
+                <button id="callButton" disabled>Create Call (offer)</button>
+            </div>
+
+            <div id="answer">
+                <input id="callInput" />
+                <button id="answerButton" disabled>Answer</button>
+            </div>
+
+            <div>
+                <button id="hangupButton" disabled>Hangup</button>
+            </div>
+
+        </div>
+        <div id="meet" style="display: none">
+            <H4 id="meet-id">Meet ID: </H4>
+            <span id="meet-id-status"></span>
+        </div>
+        <div class="floating-chat" id="chatSection" style="display: none">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <div class="chat">
+                <div class="header">
+            <span class="title">
+                Chat
+            </span>
+                    <button>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+
+                </div>
+                <ul id="messages" class="messages">
+                </ul>
+                <div class="footer">
+                    <div class="text-box" contenteditable="true" disabled="true"></div>
+                    <button id="sendMessage">send</button>
+                </div>
+            </div>
+        </div>
+        <section id="fileSection" style="display: none">
+            <div >
+                <form id="fileInfo">
+                    <input type="file" id="fileInput" name="files"/>
+                </form>
+                <button disabled id="sendFile">Send</button>
+                <button disabled id="abortButton" style="display: none">Abort</button>
+            </div>
+
+            <div class="progress">
+                <div class="label">Send progress: </div>
+                <progress id="sendProgress" max="0" value="0"></progress>
+            </div>
+
+            <div class="progress">
+                <div class="label">Receive progress: </div>
+                <progress id="receiveProgress" max="0" value="0"></progress>
+            </div>
+
+            <div id="bitrate"></div>
+            <a id="download"></a>
+            <span id="status"></span>
+
+        </section>
+        <section id="recordSection" style="display: none;margin-top: 50px" >
+        <div id="controls">
+            <button id="startRecording">Start Recording</button>
+            <button id="stopRecording" disabled>Stop Recording</button>
+        </div>
+        <video id="recordedVideo" style="display: none" controls></video>
+        </section>
+    </body>
+</html>
